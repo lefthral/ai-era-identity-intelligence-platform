@@ -1,0 +1,43 @@
+# Rule engine config. Each rule has a code, severity, and Python-like
+# predicate. Severities map to score contributions (critical=1.0, high=0.85,
+# medium=0.6, low=0.3). See src/application/rules.py for the schema.
+
+rules:
+  - code: R001
+    description: "High-velocity wires (>=3 in 1h) from one account"
+    severity: high
+  - code: R002
+    description: "Outbound wire to a high-risk jurisdiction"
+    severity: high
+  - code: R003
+    description: "New beneficiary (account age <30 days)"
+    severity: medium
+  - code: R004
+    description: "Wire amount > 95th percentile of historical for actor"
+    severity: medium
+  - code: R005
+    description: "Beneficiary appears in shared-device community with prior mules"
+    severity: critical
+  - code: R006
+    description: "Out-of-band change to wire beneficiary in last 24h"
+    severity: high
+  - code: R007
+    description: "Voice deepfake-likely voiceprint mismatch"
+    severity: critical
+  - code: R008
+    description: "Off-hours initiation (local 00:00-05:00)"
+    severity: low
+  - code: R009
+    description: "Multi-hop transfer chain (>=3 wires same beneficiary chain)"
+    severity: high
+  - code: R010
+    description: "Sanctions list fuzzy match on beneficiary name or country"
+    severity: critical
+
+# Decision thresholds
+thresholds:
+  block: 0.80
+  review: 0.50
+  # score >= block  -> BLOCK
+  # review <= score < block  -> REVIEW
+  # score < review  -> ALLOW

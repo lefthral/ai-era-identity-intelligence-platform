@@ -1,0 +1,20 @@
+{
+  "as_of": "2026-01-15",
+  "source": "Simulated for portfolio project. NOT for production use.",
+  "disclaimer": "This is a fictional sanctions list. The real OFAC SDN list must be obtained from the U.S. Treasury.",
+  "individuals": [
+    {"id": "SIM-IND-001", "name": "John Doe (sim)", "country": "IR", "list": "OFAC-SDN"},
+    {"id": "SIM-IND-002", "name": "Mei Chen (sim)", "country": "KP", "list": "OFAC-SDN"},
+    {"id": "SIM-IND-003", "name": "Carlos Mendoza (sim)", "country": "VE", "list": "OFAC-SDN"},
+    {"id": "SIM-IND-004", "name": "Viktor Petrov (sim)", "country": "RU", "list": "EU-CFSP"},
+    {"id": "SIM-IND-005", "name": "Aisha Khan (sim)", "country": "PK", "list": "UN-1267"},
+    {"id": "SIM-IND-006", "name": "Sergei Volkov (sim)", "country": "BY", "list": "OFAC-SDN"},
+    {"id": "SIM-IND-007", "name": "Kim Min-jun (sim)", "country": "KP", "list": "OFAC-SDN"},
+    {"id": "SIM-IND-008", "name": "Hassan Al-Sayed (sim)", "country": "SY", "list": "OFAC-SDN"}
+  ],
+  "entities": [
+    {"id": "SIM-ENT-001", "name": "Apex Trading LLC (sim)", "country": "IR", "list": "OFAC-SDN"},
+    {"id": "SIM-ENT-002", "name": "Eastern Star Holdings (sim)", "country": "KP", "list": "OFAC-SDN"},
+    {"id": "SIM-ENT-003", "name": "Petrolex SA (sim)", "country": "VE", "list": "OFAC-SDN"}
+  ]
+}

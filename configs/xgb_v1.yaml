@@ -1,0 +1,31 @@
+# XGBoost training config for the Identity Intelligence Platform
+# See ARCHITECTURE.md and src/ml/train.py
+
+model:
+  name: identity_intel_xgb
+  stage: Production
+  params:
+    objective: binary:logistic
+    eval_metric: auc
+    max_depth: 6
+    learning_rate: 0.05
+    n_estimators: 200
+    subsample: 0.8
+    colsample_bytree: 0.8
+    min_child_weight: 5
+    reg_alpha: 0.1
+    reg_lambda: 1.0
+    scale_pos_weight: 5  # Fraud is ~10% of base training set
+    random_state: 42
+
+training:
+  test_size: 0.2
+  random_state: 42
+  early_stopping_rounds: 20
+
+mlflow:
+  tracking_uri: http://localhost:5000
+  experiment_name: identity_intel_fraud
+
+output:
+  model_path: models/xgb_v1.ubj
