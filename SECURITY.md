@@ -4,7 +4,7 @@ If you discover a security vulnerability, please follow **coordinated
 disclosure**:
 
 1. **Do not open a public issue.** Email
-   [aryanshinde14@gmail.com](mailto:aryanshinde14@gmail.com) with:
+   [aryxnshinde@gmail.com](mailto:aryxnshinde@gmail.com) with:
    - A clear description of the vulnerability.
    - Steps to reproduce (a small PoC is fine).
    - The impact you observed.
