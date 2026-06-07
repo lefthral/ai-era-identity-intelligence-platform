@@ -1,0 +1,28 @@
+# Code owners
+
+This file defines who must approve changes to specific paths in this
+repository. See https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything
+* @lefthral
+
+# Domain logic — needs senior review
+/src/domain/ @lefthral
+/src/application/scoring.py @lefthral
+/src/application/rules.py @lefthral
+
+# Infrastructure — touches cloud bill
+/src/infrastructure/ @lefthral
+/terraform/ @lefthral
+/docker-compose.yml @lefthral
+/docker/ @lefthral
+
+# CI / deployment
+/.github/ @lefthral
+/Makefile @lefthral
+/pyproject.toml @lefthral
+/requirements*.txt @lefthral
+
+# Security-sensitive
+/docs/SECURITY.md @lefthral
+/src/infrastructure/persistence/ @lefthral
