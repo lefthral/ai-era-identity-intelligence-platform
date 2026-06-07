@@ -3,16 +3,25 @@
 If you discover a security vulnerability, please follow **coordinated
 disclosure**:
 
-1. **Do not open a public issue.** Email
-   [aryxnshinde@gmail.com](mailto:aryxnshinde@gmail.com) with:
+1. **Do not open a public issue.** Use the
+   **"Report a vulnerability"** button on the repository's
+   [Security tab](https://github.com/lefthral/ai-era-identity-intelligence-platform/security/advisories/new).
+   This routes the report through GitHub's private vulnerability
+   reporting channel — only the maintainers can see it.
+2. Include in your report:
    - A clear description of the vulnerability.
    - Steps to reproduce (a small PoC is fine).
    - The impact you observed.
-2. Expect an acknowledgment within **72 hours** and a triage within
+3. Expect an acknowledgment within **72 hours** and a triage within
    **7 days**.
-3. We will work with you to agree on a fix-and-disclose timeline. We
+4. We will work with you to agree on a fix-and-disclose timeline. We
    aim to credit reporters in the release notes (unless you prefer
    anonymity).
+
+> **Why no public email?** Contact information in a public
+> `SECURITY.md` is harvested by spammers. GitHub's private
+> vulnerability reporting is the maintainer-recommended alternative
+> and keeps the reporter's identity private until disclosure.
 
 ## Scope
 
