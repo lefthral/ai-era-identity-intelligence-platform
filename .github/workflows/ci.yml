@@ -1,0 +1,99 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+env:
+  PYTHON_VERSION: "3.11"
+  TF_VERSION: "1.7.5"
+
+jobs:
+  lint:
+    name: Lint (ruff + black + mypy)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+      - name: Install dev deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+      - name: Ruff
+        run: ruff check src/ lambdas/ app/ tests/ scripts/ examples/ notebooks/
+      - name: Black (check)
+        run: black --check src/ lambdas/ app/ tests/ scripts/ examples/ notebooks/
+      - name: Mypy
+        run: mypy src/ --ignore-missing-imports --explicit-package-bases
+
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+      - name: Pytest with coverage
+        run: |
+          pytest tests/ -v --tb=short --cov=src --cov-report=xml --cov-report=term
+      - name: Walkthrough smoke test
+        run: python -m examples.walkthrough
+      - name: Upload coverage
+        if: matrix.python-version == '3.11'
+        uses: codecov/codecov-action@v4
+        with:
+          file: coverage.xml
+          fail_ci_if_error: false
+
+  terraform-validate:
+    name: Terraform validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+      - name: terraform fmt (AWS)
+        working-directory: terraform/aws
+        run: terraform fmt -check -recursive
+      - name: terraform init (AWS)
+        working-directory: terraform/aws
+        run: terraform init -backend=false
+      - name: terraform validate (AWS)
+        working-directory: terraform/aws
+        run: terraform validate
+      - name: terraform fmt (GCP)
+        working-directory: terraform/gcp
+        run: terraform fmt -check -recursive
+      - name: terraform init (GCP)
+        working-directory: terraform/gcp
+        run: terraform init -backend=false
+      - name: terraform validate (GCP)
+        working-directory: terraform/gcp
+        run: terraform validate
+
+  docker-build:
+    name: Docker build smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build api image
+        run: docker build -f docker/api.Dockerfile -t idintel-api:ci .
+      - name: Build consumer image
+        run: docker build -f docker/consumer.Dockerfile -t idintel-consumer:ci .
+      - name: Build ui image
+        run: docker build -f docker/ui.Dockerfile -t idintel-ui:ci .
