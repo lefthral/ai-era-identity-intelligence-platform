@@ -64,6 +64,10 @@ data/processed/*
 !data/processed/.gitkeep
 mlruns/
 mlflow.db
+# Generated model outputs (trained Booster, per-class metrics)
+models/*.ubj
+models/*.json
+!models/.gitkeep
 
 # Local infrastructure
 .local/
