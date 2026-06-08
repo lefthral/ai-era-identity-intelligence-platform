@@ -9,9 +9,9 @@
 The platform was scoped to be deployable on AWS (primary) and GCP
 (portability reference). The original implementation choices were:
 
-1. **Parallel codebases** — write the AWS pipeline twice, once for each cloud
-2. **Adapter pattern** — write business logic once, swap cloud-specific implementations
-3. **Cloud-native** — pick one and write directly against its SDK
+1. **Parallel codebases** - write the AWS pipeline twice, once for each cloud
+2. **Adapter pattern** - write business logic once, swap cloud-specific implementations
+3. **Cloud-native** - pick one and write directly against its SDK
 
 ## Decision
 
@@ -39,7 +39,7 @@ def get_publisher(target: Optional[str] = None) -> EventPublisher:
 - Business logic (`src/application/`, `src/domain/`) is portable.
 - Adding a fourth cloud (Azure) is `src/infrastructure/adapters/azure/`,
   not a rewrite.
-- Local development uses the same business code path as production —
+- Local development uses the same business code path as production-
   just with different adapter classes.
 - The pattern is well-understood by senior platform engineers.
 
@@ -59,14 +59,14 @@ def get_publisher(target: Optional[str] = None) -> EventPublisher:
 
 ## Alternatives considered
 
-- **Parallel codebases**: rejected — twice the code, twice the bugs,
+- **Parallel codebases**: rejected - twice the code, twice the bugs,
   no real portability because the two would diverge.
-- **Cloud-native (AWS only)**: rejected — the requirements called
+- **Cloud-native (AWS only)**: rejected - the requirements called
   out GCP portability. Also, the adapter pattern is recruiter-recognizable
   in the platform-engineer interview.
 
 ## References
 
-- `docs/multi_cloud.md` — the user-facing explanation
-- `src/infrastructure/adapters/factory.py` — the implementation
-- `src/infrastructure/adapters/interfaces.py` — the contracts
+- `docs/multi_cloud.md` - the user-facing explanation
+- `src/infrastructure/adapters/factory.py` - the implementation
+- `src/infrastructure/adapters/interfaces.py` - the contracts

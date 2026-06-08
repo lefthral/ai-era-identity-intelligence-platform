@@ -1,6 +1,6 @@
 # AI-Era Identity Intelligence Platform
 
-> A streaming data platform purpose-built to detect AI-fraud patterns in real time — anchored on the documented Arup ($25.6M) and Singapore ($499K) deepfake wire-fraud incidents.
+> A streaming data platform purpose-built to detect AI-fraud patterns in real time - anchored on the documented Arup ($25.6M) and Singapore ($499K) deepfake wire-fraud incidents.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
@@ -32,7 +32,7 @@
 
 ## TL;DR (90 seconds for a recruiter)
 
-- **What:** Real-time fraud detection that detects the documented Arup deepfake wire-fraud pattern (15 wires, $25.6M, 142 minutes) with 100% recall and the Singapore pattern (3 wires, $499K) with 100% recall — verified by the included end-to-end walkthrough.
+- **What:** Real-time fraud detection that detects the documented Arup deepfake wire-fraud pattern (15 wires, $25.6M, 142 minutes) with 100% recall and the Singapore pattern (3 wires, $499K) with 100% recall - verified by the included end-to-end walkthrough.
 - **Stack:** Python 3.11+ · XGBoost · Neo4j · Kinesis/Lambda · Redpanda · DynamoDB · S3 · RDS · Terraform · MLflow · Streamlit
 - **Architecture:** Cloud-agnostic business logic + AWS-primary deployment + GCP portability reference. The factory at `src/infrastructure/adapters/factory.py` selects the right adapter at runtime.
 - **Run it locally in 60 seconds:** `make install-dev && make walkthrough`
@@ -54,7 +54,7 @@ make demo          # start docker, generate events, train, evaluate
 
 # 3. Latency benchmark
 make benchmark
-# p50=0.03ms, p99=0.04ms — 5000x under the 200ms p99 target
+# p50=0.03ms, p99=0.04ms - 5000x under the 200ms p99 target
 
 # 4. Tests + CI
 pytest tests/ -v
@@ -62,11 +62,11 @@ pytest tests/ -v
 ```
 
 The most important code to read:
-- `src/application/scoring.py` — the hybrid XGBoost + rules engine (where the *business* lives)
-- `src/infrastructure/adapters/factory.py` — the cloud-portability boundary
-- `terraform/aws/` — the production-shape deployment
-- `docs/multi_cloud.md` — why and how the multi-cloud pattern works
-- `docs/tier2_roadmap.md` — what I would build next, with reasoning
+- `src/application/scoring.py` - the hybrid XGBoost + rules engine (where the *business* lives)
+- `src/infrastructure/adapters/factory.py` - the cloud-portability boundary
+- `terraform/aws/` - the production-shape deployment
+- `docs/multi_cloud.md` - why and how the multi-cloud pattern works
+- `docs/tier2_roadmap.md` - what I would build next, with reasoning
 
 ## What This Is
 
@@ -79,7 +79,7 @@ A production-shape data platform that:
 5. **Records** every decision to an **evidence-quality audit log** mapped to the U.S. Treasury FS-AI RMF (Feb 2026) traceability requirements
 6. **Surfaces** decisions to investigators through a **Streamlit case-management UI**
 
-The thesis: when AI generates convincing synthetic identities and deepfake-impersonated executives, the *trust chain* behind a transaction becomes the attack surface — not the transaction itself. This platform scores that trust chain.
+The thesis: when AI generates convincing synthetic identities and deepfake-impersonated executives, the *trust chain* behind a transaction becomes the attack surface - not the transaction itself. This platform scores that trust chain.
 
 ## Why Now
 
@@ -134,12 +134,12 @@ Everything in this project is designed to run on free-tier eligible services. No
 | Identity graph | Neo4j Aura Free | Neo4j Community | Neo4j Aura Free |
 | API + UI | EC2 t3.micro (750 hrs/mo, 12 mo) | Docker Compose | Cloud Run (2M req/mo) |
 | Model tracking | MLflow on EC2 | MLflow in Docker | MLflow on Cloud Run |
-| IaC | Terraform (open source) | — | Terraform (open source) |
+| IaC | Terraform (open source) | - | Terraform (open source) |
 
 **Estimated cost within free tier:** $0-15/month
 **Post free tier (12 mo later):** $30-80/month sustainable
 
-## Quickstart (Local — 5 minutes)
+## Quickstart (Local - 5 minutes)
 
 ```bash
 # Clone
@@ -224,14 +224,14 @@ See [docs/multi_cloud.md](docs/multi_cloud.md) for the full service mapping.
 
 ## Design Decisions (Why This Stack)
 
-1. **Kinesis over Kafka** — managed, no Zookeeper, Python SDK, free tier. Tradeoff: per-record cost at scale.
-2. **Lambda over Flink** — Python-native, no JVM, scales to zero, free tier. Tradeoff: 15-min execution limit.
-3. **Neo4j over graph-in-Postgres** — Cypher expressiveness, native community detection (Louvain). Tradeoff: operational overhead (mitigated by Aura free tier).
-4. **DynamoDB over Redis** — managed, free tier, sub-10ms reads. Tradeoff: eventual consistency.
-5. **XGBoost over GNN** — recruiter-recognized, well-understood, fast training. GNN would be marginal accuracy gain, not worth the complexity at MVP.
-6. **Streamlit over React** — fastest path to demoable UI. Tradeoff: less "production UI" feel. Acceptable for portfolio.
-7. **In-process rules over OPA** — simpler, no extra service. Documented as Tier 2 upgrade path.
-8. **Synthetic labels over real fraud labels** — only public option for a portfolio piece. Documented as a known limitation.
+1. **Kinesis over Kafka** - managed, no Zookeeper, Python SDK, free tier. Tradeoff: per-record cost at scale.
+2. **Lambda over Flink** - Python-native, no JVM, scales to zero, free tier. Tradeoff: 15-min execution limit.
+3. **Neo4j over graph-in-Postgres** - Cypher expressiveness, native community detection (Louvain). Tradeoff: operational overhead (mitigated by Aura free tier).
+4. **DynamoDB over Redis** - managed, free tier, sub-10ms reads. Tradeoff: eventual consistency.
+5. **XGBoost over GNN** - recruiter-recognized, well-understood, fast training. GNN would be marginal accuracy gain, not worth the complexity at MVP.
+6. **Streamlit over React** - fastest path to demoable UI. Tradeoff: less "production UI" feel. Acceptable for portfolio.
+7. **In-process rules over OPA** - simpler, no extra service. Documented as Tier 2 upgrade path.
+8. **Synthetic labels over real fraud labels** - only public option for a portfolio piece. Documented as a known limitation.
 
 ## Limitations (Honest)
 
@@ -352,7 +352,7 @@ and the PR template.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT - see [LICENSE](LICENSE).
 
 ## Citation
 
@@ -370,12 +370,12 @@ Built as a portfolio piece for data engineering roles in banking/fintech. See [d
 
 ## Acknowledgments
 
-- The Hong Kong Police + Arup post-mortem — the public detail on the
+- The Hong Kong Police + Arup post-mortem - the public detail on the
   $25.6M attack made this project possible.
-- The Singapore SPF + HK Police FRONTIER+ operation — the only public
+- The Singapore SPF + HK Police FRONTIER+ operation - the only public
   case I know of where deepfake-wire-fraud funds were partially
   recovered.
 - The Neo4j, Streamlit, MLflow, FastAPI, XGBoost, and Pydantic
   communities.
-- The contributors and reviewers of this project — see
+- The contributors and reviewers of this project - see
   [CONTRIBUTING.md](CONTRIBUTING.md).

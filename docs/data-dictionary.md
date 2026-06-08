@@ -1,6 +1,6 @@
 # Data Dictionary
 
-> Every field, every type, every meaning — for analysts, investigators,
+> Every field, every type, every meaning - for analysts, investigators,
 > and compliance officers who need to understand the platform's data
 > without reading the code.
 
@@ -68,17 +68,17 @@ payment attempt, regardless of outcome.
 
 ### Event types in detail
 
-- **`PAYMENT_INITIATED`** — the moment the actor submits the wire;
+- **`PAYMENT_INITIATED`** - the moment the actor submits the wire;
   the primary event used for scoring
-- **`PAYMENT_AUTHORIZED`** — back-office approval, may be the
+- **`PAYMENT_AUTHORIZED`** - back-office approval, may be the
   second decision point
-- **`PAYMENT_SETTLED`** — funds have left the originating account
-- **`PAYMENT_RETURNED`** — funds have been returned (either by
+- **`PAYMENT_SETTLED`** - funds have left the originating account
+- **`PAYMENT_RETURNED`** - funds have been returned (either by
   beneficiary bank recall or originator recall)
-- **`KYC_UPDATE`** — a person or account's KYC status changed
-- **`DEVICE_FINGERPRINT`** — a new device was observed
-- **`LOGIN`** — successful authentication
-- **`PASSWORD_RESET`** — a password reset was performed
+- **`KYC_UPDATE`** - a person or account's KYC status changed
+- **`DEVICE_FINGERPRINT`** - a new device was observed
+- **`LOGIN`** - successful authentication
+- **`PASSWORD_RESET`** - a password reset was performed
 
 ## 2. Decision Stream (`Decision`)
 
@@ -125,9 +125,9 @@ reaches the scorer.
 
 | Score | Action |
 |-------|--------|
-| ≥ 0.80 | `BLOCK` — hold the payment, open a case |
-| 0.50 ≤ score < 0.80 | `REVIEW` — queue for investigator review |
-| < 0.50 | `ALLOW` — release the payment |
+| ≥ 0.80 | `BLOCK` - hold the payment, open a case |
+| 0.50 ≤ score < 0.80 | `REVIEW` - queue for investigator review |
+| < 0.50 | `ALLOW` - release the payment |
 
 ## 3. Case Stream (`Case`)
 

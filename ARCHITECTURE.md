@@ -49,11 +49,11 @@ Computer]  Updater]           Scorer]
 
 Produces three pattern families for evaluation:
 
-- **`arup_pattern.py`** — replays the Arup deepfake heist: 15 wires, $25.6M total, single day, mule chain through 5+ HK accounts, deepfake-instructed from CFO. Source: VerifyReal case study + Hong Kong police disclosures.
-- **`singapore_pattern.py`** — replays the Singapore finance director scam: single $499K wire, deepfake CFO on Zoom, mule → HK offshore accounts. Funds recovered in 4 days via FRONTIER+.
-- **`baseline.py`** — 10K synthetic users, ~500 txn/sec realistic bank mix (90% legit, 8% standard fraud, 2% deepfake-attack). Used to train the model with realistic noise.
+- **`arup_pattern.py`** - replays the Arup deepfake heist: 15 wires, $25.6M total, single day, mule chain through 5+ HK accounts, deepfake-instructed from CFO. Source: VerifyReal case study + Hong Kong police disclosures.
+- **`singapore_pattern.py`** - replays the Singapore finance director scam: single $499K wire, deepfake CFO on Zoom, mule → HK offshore accounts. Funds recovered in 4 days via FRONTIER+.
+- **`baseline.py`** - 10K synthetic users, ~500 txn/sec realistic bank mix (90% legit, 8% standard fraud, 2% deepfake-attack). Used to train the model with realistic noise.
 
-All events are **deterministic given a seed** — reproducible for testing and re-training.
+All events are **deterministic given a seed** - reproducible for testing and re-training.
 
 ### 3.2 Schema (Avro-compatible JSON)
 
@@ -118,9 +118,9 @@ All events are **deterministic given a seed** — reproducible for testing and r
 ### 3.4 Scoring
 
 **Hybrid model:**
-1. **XGBoost classifier** — trained on synthetic labels, predicts P(fraud | features). Returns score 0-1.
-2. **Rule engine** — 10 hardcoded deterministic rules. Any rule hit sets `rule_score = 1.0`.
-3. **Combination** — `decision_score = max(xgb_score, rule_score)`. Either source can flag.
+1. **XGBoost classifier** - trained on synthetic labels, predicts P(fraud | features). Returns score 0-1.
+2. **Rule engine** - 10 hardcoded deterministic rules. Any rule hit sets `rule_score = 1.0`.
+3. **Combination** - `decision_score = max(xgb_score, rule_score)`. Either source can flag.
 
 **Decision thresholds (configurable):**
 - `score >= 0.8` → BLOCK

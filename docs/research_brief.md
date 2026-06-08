@@ -30,7 +30,7 @@ the majority of growth concentrated in AI-driven attack vectors
 - **WPP (multiple probes, 2024-2025)**: Voice-clone attempts against
   agency finance teams; no public loss disclosed.
 
-The pattern is consistent: **attackers are not breaking in — they are
+The pattern is consistent: **attackers are not breaking in - they are
 logging in with a voice that sounds like the executive**.
 
 ## 3. Executive Discourse
@@ -41,10 +41,10 @@ logging in with a voice that sounds like the executive**.
   AI-fraud controls on high-value wire transfers" by 2027.
 - **Treasury FS-AI RMF (Feb 2026)**: First federal framework for
   AI risk management at financial institutions, requiring:
-  - Audit trail of every AI-driven decision
-  - Explainability at the decision level
-  - Bias testing across demographic segments
-  - Model version pinning for regulatory replay
+ - Audit trail of every AI-driven decision
+ - Explainability at the decision level
+ - Bias testing across demographic segments
+ - Model version pinning for regulatory replay
 
 ## 4. Frontier Friction Points
 
@@ -74,12 +74,12 @@ engineers with AI-fraud experience. This project targets that window.
 ## 6. Why This Project, Why This Stack
 
 - **Recruiter-recognized stack**: Python, XGBoost, Kinesis/Lambda, RDS,
-  Neo4j, Terraform, MLflow — all named in 2026 banking JD postings.
+  Neo4j, Terraform, MLflow - all named in 2026 banking JD postings.
 - **Demonstrable depth**: Hybrid rule + ML scoring, graph-based mule ring
   detection, feature store design, and audit log that maps to a real
   federal framework.
 - **Multi-cloud**: Same business logic, AWS primary deployment, GCP
-  documented portability — shows architectural maturity.
+  documented portability - shows architectural maturity.
 - **Free-tier runnable**: No budget needed to demo the full pipeline.
 
 ## Sources

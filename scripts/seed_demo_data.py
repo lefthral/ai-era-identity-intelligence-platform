@@ -22,8 +22,9 @@ import logging
 import sys
 from collections import Counter
 from datetime import UTC, datetime
+from pathlib import Path
 
-sys.path.insert(0, str(__file__.resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from src.application.features import FeatureComputer
 from src.application.scoring import RealTimeScorer
@@ -79,7 +80,7 @@ def seed(
             decision_repo.insert(decision, event)
             decisions_written += 1
             if decision.action.value in ("REVIEW", "BLOCK"):
-                case_repo.open_from_decision(decision, event)
+                # Case is auto-opened inside decision_repo.insert
                 cases_opened += 1
         except Exception as e:
             logger.exception("Failed to score %s: %s", event.event_id, e)

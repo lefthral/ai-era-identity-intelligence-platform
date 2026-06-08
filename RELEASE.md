@@ -1,6 +1,6 @@
 # Release notes
 
-## v0.1.0 (2026-06-06) — Initial public release
+## v0.1.0 (2026-06-06) - Initial public release
 
 First end-to-end release of the AI-Era Identity Intelligence Platform.
 Built around the documented **Arup ($25.6M, Jan 2024)** and
@@ -28,7 +28,7 @@ Built around the documented **Arup ($25.6M, Jan 2024)** and
 
 See `docs/SECURITY.md` and `docs/tier2_roadmap.md`:
 
-- Synthetic data only — no real bank data
+- Synthetic data only - no real bank data
 - Single region (no multi-region failover)
 - No real MLflow (uses local SQLite)
 - Heuristic scorer (not a trained XGBoost model)

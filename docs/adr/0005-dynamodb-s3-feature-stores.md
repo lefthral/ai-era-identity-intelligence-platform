@@ -78,8 +78,8 @@ For the offline store:
 
 ## References
 
-- `terraform/aws/dynamodb.tf` — the two tables
-- `terraform/aws/s3.tf` — the feature + model buckets
-- `src/infrastructure/adapters/aws/online_features.py` — DDB client
-- `src/infrastructure/adapters/aws/offline_features.py` — S3 client
-- `src/infrastructure/adapters/interfaces.py` — the contracts
+- `terraform/aws/dynamodb.tf` - the two tables
+- `terraform/aws/s3.tf` - the feature + model buckets
+- `src/infrastructure/adapters/aws/online_features.py` - DDB client
+- `src/infrastructure/adapters/aws/offline_features.py` - S3 client
+- `src/infrastructure/adapters/interfaces.py` - the contracts

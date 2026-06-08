@@ -196,7 +196,7 @@ in the free tier.
 
 ## O
 
-**OFAC SDN (Office of Foreign Assets Control — Specially Designated Nationals)**
+**OFAC SDN (Office of Foreign Assets Control - Specially Designated Nationals)**
 The U.S. sanctions list. The platform's R010 rule does a fuzzy
 match on beneficiaries against this list.
 

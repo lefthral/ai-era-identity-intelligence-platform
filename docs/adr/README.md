@@ -32,7 +32,7 @@ get out of the way when production traffic arrives.
 
 1. Copy the next number (`0008-slug.md`)
 2. Use the template at the bottom of this file
-3. Submit a PR — review by at least one other engineer before merge
+3. Submit a PR - review by at least one other engineer before merge
 
 ```markdown
 # ADR-NNNN: Title

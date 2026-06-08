@@ -79,8 +79,8 @@ features, not as a different model architecture.
 
 ## References
 
-- `src/ml/train.py` — the XGBoost trainer
-- `src/ml/dataset.py` — feature assembly
-- `src/infrastructure/graph/client.py` — graph feature source
-- `docs/tier2_roadmap.md` §3.1 — the GNN addition
-- `docs/research_brief.md` — why AI-fraud matters now
+- `src/ml/train.py` - the XGBoost trainer
+- `src/ml/dataset.py` - feature assembly
+- `src/infrastructure/graph/client.py` - graph feature source
+- `docs/tier2_roadmap.md` §3.1 - the GNN addition
+- `docs/research_brief.md` - why AI-fraud matters now

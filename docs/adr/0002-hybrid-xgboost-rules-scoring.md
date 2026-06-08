@@ -10,7 +10,7 @@ Two scoring strategies were considered:
 
 1. **Pure ML** (XGBoost only)
 2. **Pure rules** (deterministic only)
-3. **Hybrid** — both, with `final_score = max(xgb_score, rule_score)`
+3. **Hybrid** - both, with `final_score = max(xgb_score, rule_score)`
 
 ## Decision
 
@@ -47,7 +47,7 @@ def final_score(self) -> float:
 - A rule that fires with 100% severity forces `final_score = 1.0`,
   which can mask ML calibration issues.
 - Slightly higher compute cost per event (rules are ~0.01ms, ML is
-  ~0.03ms, so combined is ~0.04ms — still well under our 200ms budget).
+  ~0.03ms, so combined is ~0.04ms - still well under our 200ms budget).
 
 ### Neutral
 
@@ -57,14 +57,14 @@ def final_score(self) -> float:
 
 ## Alternatives considered
 
-- **Pure ML**: rejected — black box, hard to defend in regulator
+- **Pure ML**: rejected - black box, hard to defend in regulator
   meetings, no hard guarantees on sanctions.
-- **Pure rules**: rejected — can't catch novel attack patterns,
+- **Pure rules**: rejected - can't catch novel attack patterns,
   brittle to attacker adaptation.
 
 ## References
 
-- `src/application/scoring.py:RealTimeScorer` — implementation
-- `src/application/rules.py:RuleEngine` — the rule side
-- `configs/rules.yaml` — the 10 default rules
-- `docs/tier2_roadmap.md` §3.1 — future: GNN as a third score
+- `src/application/scoring.py:RealTimeScorer` - implementation
+- `src/application/rules.py:RuleEngine` - the rule side
+- `configs/rules.yaml` - the 10 default rules
+- `docs/tier2_roadmap.md` §3.1 - future: GNN as a third score

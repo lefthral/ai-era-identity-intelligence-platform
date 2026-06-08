@@ -7,11 +7,11 @@ disclosure**:
    **"Report a vulnerability"** button on the repository's
    [Security tab](https://github.com/lefthral/ai-era-identity-intelligence-platform/security/advisories/new).
    This routes the report through GitHub's private vulnerability
-   reporting channel — only the maintainers can see it.
+   reporting channel - only the maintainers can see it.
 2. Include in your report:
-   - A clear description of the vulnerability.
-   - Steps to reproduce (a small PoC is fine).
-   - The impact you observed.
+  - A clear description of the vulnerability.
+  - Steps to reproduce (a small PoC is fine).
+  - The impact you observed.
 3. Expect an acknowledgment within **72 hours** and a triage within
    **7 days**.
 4. We will work with you to agree on a fix-and-disclose timeline. We

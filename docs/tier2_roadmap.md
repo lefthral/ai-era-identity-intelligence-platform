@@ -3,8 +3,8 @@
 > What I would build next, with a clear line between "production-ready
 > for a real bank" and "pioneering research."
 
-The MVP (Tier 1) covers a single AI-fraud vector — deepfake-driven
-wire fraud — end-to-end. The platform is intentionally architected so
+The MVP (Tier 1) covers a single AI-fraud vector - deepfake-driven
+wire fraud - end-to-end. The platform is intentionally architected so
 the next two tiers add capabilities **without rewriting the core**.
 
 ---
@@ -68,7 +68,7 @@ The model is trained on synthetic labels today. In production:
 - Each bank contributes accounts in flagged rings; the union
   improves detection across the network
 
-**This is the highest-leverage Tier 2 work** — a single ring
+**This is the highest-leverage Tier 2 work** - a single ring
 discovered across 3 banks can save 9x the loss.
 
 ---
@@ -100,7 +100,7 @@ Extend from wires to:
 - **Card rails** with merchant-category risk
 - **Crypto on-ramps** (TRM / Chainalysis integration)
 
-The interface (`EventPublisher`, `EventConsumer`) is rail-agnostic —
+The interface (`EventPublisher`, `EventConsumer`) is rail-agnostic-
 only the `RailType` enum and the data schema change.
 
 ### 3.4 Adversarial Robustness
@@ -112,22 +112,22 @@ Compare to:
 
 ### 3.5 Privacy-Preserving Collaboration
 For cross-bank mule ring detection, mature options include:
-- **Fully Homomorphic Encryption** (FHE) — still slow but
+- **Fully Homomorphic Encryption** (FHE) - still slow but
   Cloudflare / Duality have demoed in banking
-- **Trusted Execution Environments** (TEEs) — Intel SGX, AWS Nitro
+- **Trusted Execution Environments** (TEEs) - Intel SGX, AWS Nitro
 - **Differential privacy** with calibrated noise on shared features
 
 ---
 
 ## What's NOT in Any Tier (and Why)
 
-- **GNN as the primary model** — recruiter-recognizability of
+- **GNN as the primary model** - recruiter-recognizability of
   XGBoost outweighs the marginal accuracy gain
-- **Blockchain for audit trail** — S3 + object lock + Merkle log
+- **Blockchain for audit trail** - S3 + object lock + Merkle log
   give the same guarantees at 1/1000 the cost
-- **Real-time payments with crypto settlement** — out of scope
+- **Real-time payments with crypto settlement** - out of scope
   for fraud detection; that's the payment rail's job
-- **AI agents that file SARs automatically** — the bank must own
+- **AI agents that file SARs automatically** - the bank must own
   the SAR decision, not the model; we surface, they file
 
 ---

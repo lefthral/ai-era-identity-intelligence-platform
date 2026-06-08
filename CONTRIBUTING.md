@@ -43,8 +43,8 @@ make lint             # ruff + black + mypy
 
 ```
 src/
-  domain/             # Pydantic models — no cloud SDKs, no I/O
-  application/        # Use cases — features, rules, scoring, worker
+  domain/             # Pydantic models - no cloud SDKs, no I/O
+  application/        # Use cases - features, rules, scoring, worker
   generators/         # Synthetic event generators (Arup, Singapore, baseline)
   infrastructure/
     adapters/         # Cloud-specific I/O (boto3, google-cloud, kafka-python)
@@ -66,10 +66,10 @@ scripts/              # One-off scripts (generate, build, deploy, benchmark)
 
 ## Coding Style
 
-- **Type hints everywhere** — Pydantic models, function signatures
+- **Type hints everywhere** - Pydantic models, function signatures
 - **No comments** unless the code is genuinely surprising. Let
   the names carry the meaning.
-- **Docstrings on public APIs** — short, with type information
+- **Docstrings on public APIs** - short, with type information
   already in the signature
 - **Imports**: `from src.X import Y` (no relative imports). The
   project root must be in `PYTHONPATH` (the Makefile handles this).
@@ -96,10 +96,10 @@ Run `make format` to auto-fix what `black` and `ruff` can fix.
 
 1. Create `src/infrastructure/adapters/<cloud>/`
 2. Implement each interface from `interfaces.py`:
-   - `EventPublisher`
-   - `EventConsumer`
-   - `OfflineFeatureStore`
-   - `OnlineFeatureStore`
+  - `EventPublisher`
+  - `EventConsumer`
+  - `OfflineFeatureStore`
+  - `OnlineFeatureStore`
 3. Add a `get_<cloud>_factory()` function in `factory.py`
 4. Add a test in `tests/test_adapters.py` that exercises the
    factory path
@@ -113,7 +113,7 @@ Run `make format` to auto-fix what `black` and `ruff` can fix.
    taken)
 3. Pick a `severity`: `low` (0.3), `medium` (0.6), `high` (0.85),
    or `critical` (1.0)
-4. Write the `evaluate` predicate. It must be **pure** — no
+4. Write the `evaluate` predicate. It must be **pure** - no
    I/O, no global state, no datetime.now() (the `now` is passed
    in via `feature_values` or as an argument)
 5. Add a test in `tests/test_application.py` that constructs a
@@ -126,8 +126,8 @@ Run `make format` to auto-fix what `black` and `ruff` can fix.
    `src/application/features.py`
 2. Add the computation in `_extract_features`
 3. Add the model retraining:
-   - Delete `models/xgb_v1.ubj` (or version it)
-   - `make train` — the new feature will be picked up
+  - Delete `models/xgb_v1.ubj` (or version it)
+  - `make train` - the new feature will be picked up
 4. Document the feature in `docs/data-dictionary.md` §5
 5. Update the ADR if this is a non-trivial addition
 
@@ -136,18 +136,18 @@ Run `make format` to auto-fix what `black` and `ruff` can fix.
 1. Fork the repo
 2. Create a feature branch (`git checkout -b feat/new-rule`)
 3. Make the change
-4. Run `make ci` locally — must pass
+4. Run `make ci` locally - must pass
 5. Open a PR against `main` with:
-   - A clear title (`feat: add R011 voice biometric mismatch rule`)
-   - A description of the what + why
-   - Screenshots for any UI changes
-   - A note on backwards-compatibility
+  - A clear title (`feat: add R011 voice biometric mismatch rule`)
+  - A description of the what + why
+  - Screenshots for any UI changes
+  - A note on backwards-compatibility
 
 A maintainer will review within 2 business days.
 
 ## Release Process
 
-(For Tier 2 — the MVP is at v0.1.0.)
+(For Tier 2 - the MVP is at v0.1.0.)
 
 1. Bump `version` in `pyproject.toml`
 2. Update `CHANGELOG.md` (not present in MVP; add at v0.2.0)

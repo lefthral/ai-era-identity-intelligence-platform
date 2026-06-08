@@ -25,7 +25,7 @@ The default `terraform/aws/main.tf` deploys to `us-east-1` in a
 single VPC, single AZ, with a single Kinesis shard. After 12 months,
 the bill is still under $30-80/month at the documented traffic
 level. The architecture is "single-region by default, multi-region
-by configuration change" — the same Terraform root supports it
+by configuration change" - the same Terraform root supports it
 with `multi_az = true` and a second-region provider block.
 
 ## Consequences
@@ -63,7 +63,7 @@ with `multi_az = true` and a second-region provider block.
 
 ## References
 
-- `docs/multi_cloud.md` — the cost table
-- `terraform/aws/variables.tf` — all the knobs
-- `terraform/aws/main.tf` — the single-region default
-- `docs/tier2_roadmap.md` §2.5 — multi-region as a Tier 2 item
+- `docs/multi_cloud.md` - the cost table
+- `terraform/aws/variables.tf` - all the knobs
+- `terraform/aws/main.tf` - the single-region default
+- `docs/tier2_roadmap.md` §2.5 - multi-region as a Tier 2 item

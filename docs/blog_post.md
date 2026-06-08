@@ -1,6 +1,6 @@
 # Blog Post: Building a Real-Time AI-Fraud Pipeline on the Free Tier
 
-*A data engineering case study in 2026 — when AI-generated fraud
+*A data engineering case study in 2026 - when AI-generated fraud
 stopped being a hypothetical and became a line item.*
 
 ## The Trigger
@@ -20,7 +20,7 @@ made AI-fraud controls a regulatory expectation, not a roadmap item.
 
 This is the context in which the **Identity Intelligence Platform**
 ships. It is a real-time data engineering pipeline designed to detect
-exactly this attack pattern — and it runs entirely on free-tier cloud
+exactly this attack pattern - and it runs entirely on free-tier cloud
 infrastructure.
 
 ## What the Platform Does
@@ -63,7 +63,7 @@ Streamlit investigator UI
 ```
 
 Every arrow is an interface in `src/infrastructure/adapters/interfaces.py`.
-The business logic — features, rules, scoring — does not know it runs on
+The business logic - features, rules, scoring - does not know it runs on
 AWS. The same code runs against Redpanda (local), Kinesis (AWS), or
 Pub/Sub (GCP) by swapping the adapter at the factory.
 
@@ -95,7 +95,7 @@ add a directory, not a rewrite.
 
 Every decision row includes a `fs_ai_rmf_principle` and
 `fs_ai_rmf_evidence` column. The platform does not just log
-decisions — it logs them in the shape the U.S. Treasury's FS-AI
+decisions - it logs them in the shape the U.S. Treasury's FS-AI
 RMF expects. This is the difference between a project and a
 *portfolio-ready* project: the latter is auditable.
 
@@ -116,13 +116,13 @@ $30-80 depending on traffic.
 
 ## What the Demo Looks Like
 
-1. `make start` — spins up Redpanda, Postgres, MinIO, Neo4j, MLflow
-2. `make generate-arup` — publishes 15 wires over 142 simulated minutes
+1. `make start` - spins up Redpanda, Postgres, MinIO, Neo4j, MLflow
+2. `make generate-arup` - publishes 15 wires over 142 simulated minutes
 3. Open the Streamlit UI at `localhost:8501`
 4. The Live Decision Feed shows each wire as it's scored; the Graph
    Explorer shows the resulting Hong Kong mule ring; the Audit Log
    shows each decision with its FS-AI RMF mapping
-5. `make train` — retrains the XGBoost model against the labeled
+5. `make train` - retrains the XGBoost model against the labeled
    synthetic dataset, logs to MLflow
 
 ## What I'd Add With More Time

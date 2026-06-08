@@ -21,11 +21,11 @@ Initial public release.
   `RuleHit`, `ModelVersion`, `PolicyVersion`, `FeatureSnapshot`.
   Cloud-agnostic, no infrastructure dependencies.
 - Synthetic event generators (`src/generators/`):
-  - `arup_pattern.py` — the documented $25.6M / 15-wire Arup deepfake
+ - `arup_pattern.py` - the documented $25.6M / 15-wire Arup deepfake
     fraud (Jan 2024).
-  - `singapore_pattern.py` — the $499K Singapore deepfake CFO scam
+ - `singapore_pattern.py` - the $499K Singapore deepfake CFO scam
     (Mar 2025).
-  - `baseline.py` — realistic normal activity.
+ - `baseline.py` - realistic normal activity.
 - Feature computer (`src/application/features.py`): 19 streaming features
   (velocity, network, jurisdictional risk, behavior).
 - Rule engine (`src/application/rules.py`): 10 deterministic rules
@@ -39,16 +39,16 @@ Initial public release.
 - Infrastructure adapters (`src/infrastructure/adapters/`):
   factory pattern, `EventPublisher`, `EventConsumer`,
   `OfflineFeatureStore`, `OnlineFeatureStore`, `GraphClient`,
-  `Notifier` — with concrete implementations for `local`, `aws`, and
+  `Notifier` - with concrete implementations for `local`, `aws`, and
   `gcp` targets.
 - Persistence (`src/infrastructure/persistence/`): SQLAlchemy models
   + repositories for `Decision`, `Case`, `AuditLog`, `Stats`.
 - Audit log shape mapped to U.S. Treasury FS-AI RMF (Feb 2026)
   traceability requirements.
 - Notifications (`src/infrastructure/notifications/`): Noop, Slack,
-  PagerDuty — selected by `ALERT_CHANNEL` env var.
+  PagerDuty - selected by `ALERT_CHANNEL` env var.
 - Lambda handlers (`lambdas/`): `feature_computer`, `graph_updater`,
-  `scorer` — three Lambda entry points.
+  `scorer` - three Lambda entry points.
 - FastAPI service (`src/application/api.py`): 9 endpoints
   (health, decisions, cases, graph, mule-rings, features, stats, audit).
 - Streamlit UI (`app/streamlit_app.py`): 4 pages (Live Feed, Case
@@ -70,14 +70,14 @@ Initial public release.
 - Configs (`configs/`): `xgb_v1.yaml`, `rules.yaml`.
 - Data (`data/sanctions_list.json`): simulated OFAC/UN/EU list.
 - Docs (`docs/`):
-  - `research_brief.md` — institutional context (5 vectors).
-  - `multi_cloud.md` — AWS ↔ GCP mapping.
-  - `blog_post.md` — "Building on the free tier".
-  - `tier2_roadmap.md` — production-hardening + research roadmap.
-  - `data-dictionary.md` — every field documented.
-  - `glossary.md` — banking terms.
-  - `SECURITY.md` — attack surface + 13 controls + 10 known gaps.
-  - `adr/` — 7 architecture decision records.
+ - `research_brief.md` - institutional context (5 vectors).
+ - `multi_cloud.md` - AWS ↔ GCP mapping.
+ - `blog_post.md` - "Building on the free tier".
+ - `tier2_roadmap.md` - production-hardening + research roadmap.
+ - `data-dictionary.md` - every field documented.
+ - `glossary.md` - banking terms.
+ - `SECURITY.md` - attack surface + 13 controls + 10 known gaps.
+ - `adr/` - 7 architecture decision records.
 - Notebooks-as-scripts (`notebooks/`): `training_analysis.py` for
   reproducible per-class metrics.
 - CI (`.github/workflows/ci.yml`): 4 jobs (lint, test 3.11+3.12,

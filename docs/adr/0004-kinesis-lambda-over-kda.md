@@ -51,7 +51,7 @@ Use **Kinesis + Lambda** for the MVP.
 ### Neutral
 
 - Kinesis has a hard ceiling of 1,000 shards per stream. At
-  1 MB/s per shard, that's 86 GB/day — well above the MVP load.
+  1 MB/s per shard, that's 86 GB/day - well above the MVP load.
 
 ## Alternatives considered
 
@@ -72,8 +72,8 @@ Use **Kinesis + Lambda** for the MVP.
 
 ## References
 
-- `terraform/aws/kinesis.tf` — the stream definition
-- `terraform/aws/lambda.tf` — the three functions
-- `src/infrastructure/adapters/aws/consumer.py` — the two consumer
+- `terraform/aws/kinesis.tf` - the stream definition
+- `terraform/aws/lambda.tf` - the three functions
+- `src/infrastructure/adapters/aws/consumer.py` - the two consumer
   classes (Lambda + polling)
-- `lambdas/feature_computer/handler.py` — the Lambda entry point
+- `lambdas/feature_computer/handler.py` - the Lambda entry point
